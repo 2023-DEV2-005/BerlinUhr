@@ -3,6 +3,6 @@ plugins {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'
-    testImplementation 'io.strikt:strikt-core:0.34.0'
+    testImplementation libs.junit.jupiter
+    testImplementation libs.strikt.core
 }
