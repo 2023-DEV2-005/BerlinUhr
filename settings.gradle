@@ -11,6 +11,21 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
     }
+    versionCatalogs {
+        libs {
+            version('kotlinx', '1.6.4')
+            version('mockito', '5.1.1')
+            library('kotlinx-coroutines-core', 'org.jetbrains.kotlinx', 'kotlinx-coroutines-core').versionRef('kotlinx')
+            library('kotlinx-coroutines-test', 'org.jetbrains.kotlinx', 'kotlinx-coroutines-test').versionRef('kotlinx')
+            library('junit-jupiter', 'org.junit.jupiter', 'junit-jupiter').version('5.9.2')
+            library('strikt-core', 'io.strikt', 'strikt-core').version('0.34.0')
+            library('javax-inject', 'javax.inject', 'javax.inject').version('1')
+            library('mockito-core', 'org.mockito', 'mockito-core').versionRef('mockito')
+            library('mockito-junit-jupiter', 'org.mockito', 'mockito-junit-jupiter').versionRef('mockito')
+            library('mockito-inline', 'org.mockito', 'mockito-inline').versionRef('mockito')
+            bundle('mockito', ['mockito-core', 'mockito-junit-jupiter', 'mockito-inline'])
+        }
+    }
 }
 rootProject.name = "BerlinUhr"
 include ':app'
