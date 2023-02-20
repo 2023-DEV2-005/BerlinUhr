@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 rootProject.name = "BerlinUhr"
 include ':app'
 include ':domain'
+include ':usecase'
