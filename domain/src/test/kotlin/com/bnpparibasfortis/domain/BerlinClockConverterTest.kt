@@ -4,9 +4,14 @@ import com.bnpparibasfortis.domain.model.Light.OFF
 import com.bnpparibasfortis.domain.model.Light.YELLOW
 import com.bnpparibasfortis.domain.model.Light.RED
 import org.junit.jupiter.api.DynamicTest.dynamicTest
+import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestFactory
+import strikt.api.expectCatching
 import strikt.api.expectThat
+import strikt.assertions.isA
 import strikt.assertions.isEqualTo
+import strikt.assertions.isFailure
+import java.time.format.DateTimeParseException
 
 class BerlinClockConverterTest {
 
@@ -128,6 +133,13 @@ class BerlinClockConverterTest {
         dynamicTest("$input should be converted to $expected as bottom row minute lights") {
             expectThat(convert(input).minuteBottomRow).isEqualTo(expected)
         }
+    }
+
+    @Test
+    fun `Given a unconform time format for conversion an exception should arise`() {
+        expectCatching { convert("bla bla bla") }
+            .isFailure()
+            .isA<DateTimeParseException>()
     }
 
     private fun convert(time: String) = berlinClockConverter.from(time)
