@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Berlin Uhr</string>
+    <string name="title_activity_main">Berlin Uhr</string>
 </resources>
