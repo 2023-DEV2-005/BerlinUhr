@@ -12,6 +12,6 @@ data class BerlinClock(
     //todo: put size in constants
     companion object {
         fun default() = BerlinClock(OFF, List(4) { OFF }, List(4) { OFF },
-            List(4) { OFF }, List(11) { OFF })
+            List(11) { OFF }, List(4) { OFF })
     }
 }
