@@ -5,8 +5,11 @@ import com.bnpparibasfortis.domain.model.Light
 import com.bnpparibasfortis.domain.model.Light.*
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class BerlinClockConverter {
+@Singleton
+class BerlinClockConverter @Inject constructor() {
 
     fun from(time: String) =
         DateTimeFormatter.ISO_TIME.parse(time, LocalTime::from).toBerlinClock()
